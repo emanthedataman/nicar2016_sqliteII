@@ -17,7 +17,7 @@
 * Query to create the table
 
  ```
-CREATE TABLE "nicar_CAdaycares031714" (
+CREATE TABLE "ca_daycares" (
     "id" INT,
     "facility_type" VARCHAR, 
     "facility_number" VARCHAR, 
@@ -57,10 +57,10 @@ CREATE TABLE "nicar_CAdaycares031714" (
 * Groups things together, essentially creating piles or groups of things that are **EXACTLY** the same
 * Needs one or more columns. If grouping by multiple columns separate with a comma
 * Used in conjunction with aggregate functions:
- * Rows need to be sorted/grouped into piles before an aggregation function can be performed
+ * Rows need to be sorted/grouped into piles before an aggregate function can be performed
  * Aggregate functions are like verbs, they do something
  * And like verbs, they also need a subject, i.e. a column
-* Before you can count, add things, average things, you must group things first. Unfortunately computers are not that smart and you must tell it to group things first
+* Before you can count, add things, average things, you must group things first. Unfortunately computers are not that smart and you must tell it to group things
  * Coins: quarters, dimes, etc
  * Colors: black, blue, red, etc
 * GROUP BY identifies uniques values within a column. Shows spelling errors, spelling inconsistencies, etc.
@@ -68,7 +68,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT facility_type
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_type
  ```
 
@@ -84,7 +84,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT *
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  WHERE facility_name LIKE 'Little %' 
  ```
 
@@ -112,13 +112,13 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  ```
 * How many daycares have a facility type of Infant Center? School Age Day Care Center?
 
  ```
  SELECT facility_type, COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_type
  ```
 
@@ -126,21 +126,21 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT facility_type, COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  ```
 
 * In Excel you click sort, in SQLite you ORDER BY
 
  ```
  SELECT facility_type, COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_type
  ORDER BY facility_type 
 
  OR
  
  SELECT facility_type, COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_type
  ORDER BY COUNT(*)
  ```
@@ -153,7 +153,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT facility_type, COUNT(*) AS facility_count
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_type
  ORDER BY 2 DESC
  ```
@@ -163,12 +163,12 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT facility_administrator, COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_administrator
  ORDER BY 2 DESC
     
  SELECT facility_administrator, COUNT(facility_administrator)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY facility_administrator
  ORDER BY 2 DESC
  ```
@@ -197,7 +197,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
  
  ```
  SELECT county_name, SUM(inspection_visits)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY county_name
  ORDER BY 2 DESC
  ```
@@ -220,7 +220,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT county_name, AVG(inspection_visits)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY county_name
  ORDER BY 2 DESC
  ```
@@ -236,7 +236,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT county_name, COUNT(*)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  GROUP BY county_name
  HAVING COUNT(*) > 500
  ORDER BY 2 DESC
@@ -283,7 +283,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
  
  ```
  SELECT facility_name, (inspection_visits + complaint_visits + other_visits) AS total_visits
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  ORDER BY 2 DESC
  ```
 
@@ -295,7 +295,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT MAX(county_name)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  ```
 
  * Because county_name column is text, it only shows the county name that begins with the last letter in the alphabet.
@@ -304,7 +304,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
  ```
  SELECT county_name, MAX(inspection_visits)
- FROM nicar_CAdaycares031714
+ FROM ca_daycares
  ```
 
  * The pitfall is that there are many records where the inspection visits is six.
@@ -319,7 +319,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
   ```
   SELECT county_name, inspection_visits
-  FROM nicar_CAdaycares031714
+  FROM ca_daycares
   ORDER BY inspection_visits DESC
   ```
 
