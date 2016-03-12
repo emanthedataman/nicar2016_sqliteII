@@ -51,7 +51,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
     "all_complaint_type_a" INT )
  ```
 
-* Import data using import wizard
+* Import data using import wizard in SQLite
 
 ### GROUP BY Statement:
 * Groups things together, essentially creating piles or groups of things that are **EXACTLY** the same
@@ -59,11 +59,11 @@ CREATE TABLE "nicar_CAdaycares031714" (
 * Used in conjunction with aggregate functions:
  * Rows need to be sorted/grouped into piles before an aggregation function can be performed
  * Aggregate functions are like verbs, they do something
- * And like verbs, they also need a subject, i.e. a column(s)
-* Before it can count, add things, average things, it must group things first. Unfortunately computers are not that smart and you must tell it to group things first
+ * And like verbs, they also need a subject, i.e. a column
+* Before you can count, add things, average things, you must group things first. Unfortunately computers are not that smart and you must tell it to group things first
  * Coins: quarters, dimes, etc
  * Colors: black, blue, red, etc
-* GROUP BY identifies uniques values within a column. Points out spelling errors, spelling inconsistencies, etc.
+* GROUP BY identifies uniques values within a column. Shows spelling errors, spelling inconsistencies, etc.
 * California Daycare Data: Group by facility type
 
  ```
@@ -78,7 +78,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
 ### Wildcards
 * Group strings together that have a common characteristic or pattern but are not necessarily identical
-* % used to match any number of characters
+* % used to match **ANY** number of characters. And _ matches on a **single** character 
 * Wildcard must always use the operator LIKE
 * I want to find all the records where the facility name begins with the word Little
 
@@ -191,7 +191,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 * The importance of GROUP BY statement is seen in the SUM function
  * You need to group things together before you can add them
  * Think of money: you want to group the quarters together, then add them; group all dimes together, then add them
-* Like count, the same column you are summing by, you are also grouping by
+* Like in count, the same column you are summing by, you are also grouping by
  
 * In the following example, I want to know the number of inspections visits per county. Because I want to know per County, I will group by County
  
@@ -230,7 +230,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
 
 ### HAVING
 
-* Acts like a filter - or the WHERE statement - for aggregate function
+* Acts like a filter - or the WHERE statement - for the aggregate function
 
 * How many counties have more 500 day cares
 
@@ -277,7 +277,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
   SELECT ((column_one * 1.0)/column_two)
   ```
 
-* Recognizes PEMAS
+* Recognizes PEMDAS
 
 * Find the total number of visits for each facility
  
@@ -287,7 +287,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
  ORDER BY 2 DESC
  ```
 
-* The which county has the highest percentage of total visits that lead to total number of Type A violations?
+* The which county has the highest ratio type A violations to total number of visits?
 
 ### Max and Min
 * Works in a similar fashion as ORDER BY; the exception: where ORDER BY sorts every records from least to greatest or vise versa and returns every records in said order, MAX and MIN return the greatest record and least records, respectively. 
