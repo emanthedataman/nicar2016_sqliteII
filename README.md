@@ -312,6 +312,7 @@ CREATE TABLE "nicar_CAdaycares031714" (
   ```
   SELECT county_name, inspection_visits
   FROM nicar_CA
+  WHERE inspection_visits = 6
   ```
 
 * the difference between MAX and MIN and ORDER BY: the former returns one row, where as ORDER BY returns everything
