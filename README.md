@@ -311,7 +311,7 @@ CREATE TABLE "ca_daycares" (
   
   ```
   SELECT county_name, inspection_visits
-  FROM nicar_CA
+  FROM ca_daycares
   WHERE inspection_visits = 6
   ```
 
