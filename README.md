@@ -324,7 +324,7 @@ CREATE TABLE "ca_daycares" (
   ORDER BY inspection_visits DESC
   ```
 
-  * Max and Min provide the ceiling and the floor a column
+  * Max and Min provide the ceiling and floor for a column
   * Max and Min only works in the SELECT statememt
   * Comes in handy when working with Subqueries
 
