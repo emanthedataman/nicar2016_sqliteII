@@ -2,7 +2,7 @@
 
 # SQLite II: counting, summing, and other math operations
 
-[SQL Mnemonic Device.](http://www.sqlservercentral.com/articles/T-SQL/73634/)
+[SQL Mnemonic Device.](http://www.sqlservercentral.com/articles/T-SQL/73634/) from SQL Server Central
 ##### Sweaty = SELECT
 ##### Feet = FROM
 ##### Will = WHERE
@@ -51,7 +51,7 @@ CREATE TABLE "ca_daycares" (
     "all_complaint_type_a" INT )
  ```
 
-* Import data using import wizard in SQLite
+* Import data into table using import wizard in SQLite
 
 ### GROUP BY Statement:
 * Groups things together, essentially creating piles or groups of things that are **EXACTLY** the same
@@ -89,6 +89,7 @@ CREATE TABLE "ca_daycares" (
  ```
 
 * What about Lil'?
+ * Don't forget to escape the apostrophe for in Lil'
 
 ### COUNT
 * Once values have been grouped together, count to see how many are in each pile
@@ -149,7 +150,7 @@ CREATE TABLE "ca_daycares" (
 * Second query orders by the count, because it's numerical it orders from least to greatest
 * Add DESC to go from Z-A or greatest to least
 * Can also use numbers to substitute the column name: The first column in the SELECT statement is 1, the second column in the SELECT statement is 2, and so forth
-* Column Aliases: Provide a name to column that you count, sum, avg, calculate, etc
+* Column Aliases: Provides a name to column that you count, sum, avg, calculate, etc. Comes in handy if you are exporting the query.
 
  ```
  SELECT facility_type, COUNT(*) AS facility_count
@@ -208,7 +209,7 @@ CREATE TABLE "ca_daycares" (
 
 ### Average
 * Find the average: adds all the numbers in the set and then divides by the total number of quantities in the set
-* Again, the GROUP BY statement is important because you need to group things that are exactly alike together, before you can calculate the average
+* Again, the GROUP BY statement is important because you need to group things that are exactly alike together before you can calculate the average
 * Average goes in the SELECT statement
  
  ```
@@ -324,6 +325,8 @@ CREATE TABLE "ca_daycares" (
   ```
 
   * Max and Min provide the ceiling and the floor a column
+  * Max and Min only works in the SELECT statememt
+  * Comes in handy when working with Subqueries
 
 
 
