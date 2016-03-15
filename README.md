@@ -89,7 +89,7 @@ CREATE TABLE "ca_daycares" (
  ```
 
 * What about Lil'?
- * Don't forget to escape the apostrophe for in Lil'
+ * Don't forget to escape the apostrophe in Lil'
 
 ### COUNT
 * Once values have been grouped together, count to see how many are in each pile
