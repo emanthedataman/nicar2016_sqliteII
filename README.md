@@ -42,7 +42,7 @@ CREATE TABLE "ca_daycares" (
     "other_visits" INT, 
     "total_visits" INT, 
     "all_visit_dates" VARCHAR, 
-    "inspection_visit_dates" , 
+    "inspection_visit_dates" VARCHAR, 
     "inspect_typea" INT, 
     "inspect_typeb" INT, 
     "other_visit_dates" VARCHAR, 
